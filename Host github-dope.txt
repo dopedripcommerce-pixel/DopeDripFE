@@ -1,0 +1,4 @@
+Host github-dope
+    HostName github.com
+    User git
+    IdentityFile C:\Users\ADITYA MADDILA\.ssh\github-dope

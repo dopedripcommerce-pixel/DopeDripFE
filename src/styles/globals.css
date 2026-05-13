@@ -1,0 +1,156 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&family=Space+Mono:wght@400;700&display=swap');
+
+:root {
+  --font-bebas:      'Bebas Neue', sans-serif;
+  --font-dm-sans:    'DM Sans', sans-serif;
+  --font-space-mono: 'Space Mono', monospace;
+}
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply bg-[#1E1E1E] text-white font-body antialiased; }
+
+  ::-webkit-scrollbar       { width: 5px; }
+  ::-webkit-scrollbar-track { background: #1E1E1E; }
+  ::-webkit-scrollbar-thumb { background: #3A3A3A; border-radius: 9999px; }
+  ::-webkit-scrollbar-thumb:hover { background: #888; }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-white text-[#1E1E1E] font-mono text-xs tracking-widest uppercase
+           px-8 py-4 transition-all duration-200
+           hover:bg-[#D4FF00] hover:text-[#1E1E1E]
+           disabled:opacity-40 disabled:cursor-not-allowed;
+  }
+  .btn-lime {
+    @apply bg-[#D4FF00] text-[#1E1E1E] font-mono text-xs tracking-widest uppercase
+           px-8 py-4 transition-all duration-200 hover:bg-white;
+  }
+  .btn-outline {
+    @apply bg-transparent text-white border border-[#3A3A3A] font-mono text-xs
+           tracking-widest uppercase px-8 py-4 transition-all duration-200
+           hover:border-[#D4FF00] hover:text-[#D4FF00];
+  }
+  .product-card {
+    @apply bg-[#2A2A2A] cursor-pointer transition-all duration-200 hover:-translate-y-1;
+  }
+  .badge-new   { @apply bg-[#D4FF00] text-[#1E1E1E]; }
+  .badge-sale  { @apply bg-red-500 text-white; }
+  .badge-trend { @apply bg-white text-[#1E1E1E]; }
+  .input-base {
+    @apply w-full px-4 py-3 bg-[#2A2A2A] border border-[#3A3A3A] text-white text-sm
+           font-body placeholder:text-[#888] focus:outline-none
+           focus:border-[#D4FF00] transition-colors duration-200;
+  }
+  .section-title { @apply font-display text-5xl text-white tracking-widest uppercase; }
+  .section-title span { color: #D4FF00; }
+  .overline-label { @apply font-mono text-xs tracking-[0.2em] uppercase; color: #D4FF00; }
+}
+
+.marquee-track { animation: marquee 18s linear infinite; }
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.lime-glow { transition: box-shadow 0.2s; }
+.lime-glow:hover { box-shadow: 0 0 28px rgba(212,255,0,0.18); }
+
+.page-enter { animation: fadeUp 0.35s ease-out forwards; }
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(14px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  width: max-content;
+  animation: marquee 28s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+/* Hide scrollbar */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+/* ─────────────────────────────
+   ENHANCED NEON GRID OVERLAY
+───────────────────────────── */
+
+body::before {
+  content: '';
+
+  position: fixed;
+  inset: 0;
+
+  pointer-events: none;
+  z-index: -1;
+
+  background-image:
+    linear-gradient(
+      rgba(212,255,0,0.055) 1px,
+      transparent 1px
+    ),
+
+    linear-gradient(
+      90deg,
+      rgba(212,255,0,0.055) 1px,
+      transparent 1px
+    );
+
+  /* Smaller grid */
+  background-size: 42px 42px;
+
+  mask-image:
+    radial-gradient(
+      ellipse at center,
+      black 58%,
+      transparent 100%
+    );
+
+  opacity: 0.32;
+}
+
+/* Soft ambient glow */
+body::after {
+  content: '';
+
+  position: fixed;
+  inset: 0;
+
+  pointer-events: none;
+  z-index: -2;
+
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(212,255,0,0.07),
+      transparent 28%
+    ),
+
+    radial-gradient(
+      circle at bottom left,
+      rgba(212,255,0,0.05),
+      transparent 32%
+    );
+}
