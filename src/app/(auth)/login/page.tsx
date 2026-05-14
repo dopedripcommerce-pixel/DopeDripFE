@@ -8,7 +8,7 @@ export default function LoginPage() {
   const showToast=useToastStore(s=>s.show)
   function handleSubmit(e:React.FormEvent){e.preventDefault();showToast('Welcome back! ⚡')}
   return (
-    <div style={{background:'#2A2A2A',border:'1px solid #3A3A3A'}} className="w-full max-w-md p-10">
+    <div style={{background:'#2A2A2A',border:'1px solid #3A3A3A',borderRadius:'16px'}} className="w-full max-w-md p-10">
       <div className="text-center mb-8">
         <Link href="/" className="font-display text-4xl text-white tracking-[0.15em]">
           DOPE<span style={{color:'#D4FF00'}}>DRIP</span>

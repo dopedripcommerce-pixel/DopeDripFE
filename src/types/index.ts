@@ -2,11 +2,30 @@
 //  Dope Drip — Shared TypeScript Types
 // ──────────────────────────────────────────────
 
-export type ProductCategory = 'Tees' | 'Hoodies'
+export type ProductCategory = 'Tees' | 'Hoodies' | 'Oversized Tees' | 'Sweatshirts' | 'Crop Tops'
 
-export type ProductBadge = 'New' | 'Trending' | 'Sale' | ''
+export type ProductGender = 'unisex' | 'men' | 'women'
+
+export type ProductBadge =
+  | 'New Drop'
+  | 'Trending'
+  | 'Culture Pick'
+  | 'Editor Pick'
+  | 'Most Saved'
+  | 'Limited'
+  | 'Archive Favorite'
+  | 'Sale'
+  | ''
 
 export type ProductVibe =
+  | 'Poetic Internet'
+  | 'Minimal Emotional'
+  | 'Internet Culture'
+  | 'Cinema Core'
+  | 'Comfort Core'
+  | 'Vintage Cinema'
+  | 'Poetic Streetwear'
+  | 'Anime Cinema'
   | 'Meme Culture'
   | 'Vintage Retro'
   | 'Streetwear'
@@ -43,10 +62,16 @@ export interface Product {
   reviewCount: number
   isFeatured:  boolean
   isTrending:  boolean
-  trendVelocity: TrendVelocity
-  daysUntilDead: number
+  gender:         ProductGender
+  trendVelocity?: TrendVelocity
+  trendState?: string
+  daysUntilDead?: number
+  daysUntilArchive?: number
   stockScarcity: number
   weeklyWearCount: number
+  story?: string
+  themes?: string[]
+  moods?: string[]
 }
 
 export interface CartItem {
@@ -106,7 +131,7 @@ export interface Collection {
   name: string
   description: string
   icon: string
-  vibes: ProductVibe[]
+  vibes: string[]
 }
 
 export interface ReferralCode {

@@ -68,7 +68,7 @@ export const emailService = {
   },
 
   async sendTrendDying(email: string, product: Product) {
-    const template = generateTrendDying(product, product.daysUntilDead)
+    const template = generateTrendDying(product, product.daysUntilDead ?? product.daysUntilArchive ?? 0)
     console.log(`⏰ [TREND DYING] Sending to ${email}:`, template)
     const sent = JSON.parse(localStorage.getItem('sent_emails') || '[]')
     sent.push({ to: email, type: 'trend_dying', product: product.name, timestamp: new Date() })

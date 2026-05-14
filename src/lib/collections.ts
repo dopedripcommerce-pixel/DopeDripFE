@@ -1,3 +1,5 @@
+import type { Collection } from '@/types'
+
 export const COLLECTIONS: Collection[] = [
   {
     id: 'late-night-thoughts',

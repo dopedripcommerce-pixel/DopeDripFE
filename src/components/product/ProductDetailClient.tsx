@@ -6,13 +6,15 @@ import type { Product, ProductColor } from '@/types'
 import ProductImagePlaceholder from './ProductImagePlaceholder'
 import ProductCard from './ProductCard'
 import { useCartStore, useWishlistStore, useToastStore } from '@/store'
+import SizeGuideModal from '@/components/ui/SizeGuideModal'
 
 interface Props { product: Product; related: Product[] }
 
 export default function ProductDetailClient({ product, related }: Props) {
-  const [selectedSize,  setSelectedSize]  = useState(product.sizes[3]??product.sizes[0])
+  const [selectedSize,  setSelectedSize]  = useState(product.sizes[2]??product.sizes[0])
   const [selectedColor, setSelectedColor] = useState<ProductColor>(product.colors[0])
   const [qty,           setQty]           = useState(1)
+  const [sizeGuideOpen, setSizeGuideOpen] = useState(false)
 
   const addItem   = useCartStore(s=>s.addItem)
   const toggle    = useWishlistStore(s=>s.toggle)
@@ -41,7 +43,7 @@ export default function ProductDetailClient({ product, related }: Props) {
             {product.colors.map((c,i)=>(
               <button key={i} onClick={()=>setSelectedColor(c)}
                 style={{background:c.hex+'20',border:`2px solid ${selectedColor.name===c.name?'#D4FF00':'transparent'}`}}
-                className="w-[68px] h-[82px] flex items-center justify-center transition-all">
+                className="w-[68px] h-[82px] flex items-center justify-center rounded-lg transition-all">
                 <ProductImagePlaceholder color={c.hex} emoji={product.emoji} type={product.category} size={48}/>
               </button>
             ))}
@@ -71,7 +73,7 @@ export default function ProductDetailClient({ product, related }: Props) {
             {product.oldPrice && (
               <>
                 <span className="font-mono text-base text-[#555] line-through">₹{product.oldPrice.toLocaleString('en-IN')}</span>
-                <span style={{background:'#D4FF00',color:'#1E1E1E'}} className="text-xs px-2 py-0.5 font-bold">{discount}% OFF</span>
+                <span style={{background:'#D4FF00',color:'#1E1E1E'}} className="text-xs px-2 py-0.5 font-bold rounded-full">{discount}% OFF</span>
               </>
             )}
           </div>
@@ -96,7 +98,7 @@ export default function ProductDetailClient({ product, related }: Props) {
           <div className="mb-6">
             <div className="flex items-center justify-between mb-2">
               <p className="font-mono text-xs tracking-widest uppercase font-bold text-white">Size</p>
-              <button style={{color:'#D4FF00'}} className="font-mono text-xs tracking-widest">Size Guide →</button>
+              <button onClick={() => setSizeGuideOpen(true)} style={{color:'#D4FF00'}} className="font-mono text-xs tracking-widest hover:opacity-70 transition-opacity">Size Guide →</button>
             </div>
             <div className="flex flex-wrap gap-2">
               {product.sizes.map(s=>(
@@ -104,14 +106,14 @@ export default function ProductDetailClient({ product, related }: Props) {
                   style={{border:`1px solid ${selectedSize===s?'#D4FF00':'#3A3A3A'}`,
                     background:selectedSize===s?'#D4FF00':'transparent',
                     color:selectedSize===s?'#1E1E1E':'white'}}
-                  className="px-4 py-2 font-mono text-xs transition-all duration-150">{s}</button>
+                  className="px-4 py-2 font-mono text-xs rounded-lg transition-all duration-150">{s}</button>
               ))}
             </div>
           </div>
 
           {/* Qty + Actions */}
           <div className="flex items-center gap-3 mb-4">
-            <div style={{border:'1px solid #3A3A3A'}} className="flex items-center">
+            <div style={{border:'1px solid #3A3A3A'}} className="flex items-center rounded-lg overflow-hidden">
               <button onClick={()=>setQty(q=>Math.max(1,q-1))} style={{background:'#2A2A2A'}} className="w-10 h-11 text-lg text-white hover:bg-[#3A3A3A] transition-colors">−</button>
               <span className="w-12 text-center font-mono text-sm text-white">{qty}</span>
               <button onClick={()=>setQty(q=>q+1)} style={{background:'#2A2A2A'}} className="w-10 h-11 text-lg text-white hover:bg-[#3A3A3A] transition-colors">+</button>
@@ -120,7 +122,7 @@ export default function ProductDetailClient({ product, related }: Props) {
               className="btn-primary flex-1 py-3">Add to Cart</button>
             <button onClick={()=>{toggle(product);showToast(isWished?'Removed from wishlist':'Added to wishlist ♥')}}
               style={{border:`1px solid ${isWished?'#ef4444':'#3A3A3A'}`,background:'#2A2A2A'}}
-              className="w-12 h-11 flex items-center justify-center transition-all">
+              className="w-12 h-11 flex items-center justify-center rounded-lg transition-all">
               <Heart size={16} className={isWished?'fill-red-500 text-red-500':'text-white'}/>
             </button>
           </div>
@@ -144,6 +146,8 @@ export default function ProductDetailClient({ product, related }: Props) {
           {related.map(p=><ProductCard key={p.id} product={p}/>)}
         </div>
       </section>
+
+      <SizeGuideModal open={sizeGuideOpen} onClose={() => setSizeGuideOpen(false)} category={product.category} />
     </div>
   )
 }

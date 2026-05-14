@@ -18,6 +18,7 @@ export const PRODUCTS: Product[] = [
     badge: 'New Drop',
     category: 'Tees',
     vibe: 'Poetic Internet',
+    gender: 'unisex',
     themes: ['Poetic', 'Late Night', 'Cinema'],
     moods: ['Overthinking', 'Detached'],
     colors: [
@@ -53,6 +54,7 @@ export const PRODUCTS: Product[] = [
     badge: 'Trending',
     category: 'Hoodies',
     vibe: 'Minimal Emotional',
+    gender: 'unisex',
     themes: ['Minimal', 'Poetic'],
     moods: ['Distant', 'Comfort'],
     colors: [
@@ -88,6 +90,7 @@ export const PRODUCTS: Product[] = [
     badge: 'Culture Pick',
     category: 'Tees',
     vibe: 'Internet Culture',
+    gender: 'unisex',
     themes: ['Internet', 'Meme Culture'],
     moods: ['Chaotic', 'Detached'],
     colors: [
@@ -122,6 +125,7 @@ export const PRODUCTS: Product[] = [
     badge: 'Editor Pick',
     category: 'Tees',
     vibe: 'Cinema Core',
+    gender: 'unisex',
     themes: ['Cinema', 'Streetwear'],
     moods: ['Confident', 'Dreamy'],
     colors: [
@@ -156,6 +160,7 @@ export const PRODUCTS: Product[] = [
     badge: 'Most Saved',
     category: 'Hoodies',
     vibe: 'Comfort Core',
+    gender: 'unisex',
     themes: ['Comfort', 'Minimal'],
     moods: ['Exhausted', 'Safe'],
     colors: [
@@ -190,6 +195,7 @@ export const PRODUCTS: Product[] = [
     badge: 'Limited',
     category: 'Tees',
     vibe: 'Vintage Cinema',
+    gender: 'unisex',
     themes: ['Cinema', 'Vintage'],
     moods: ['Nostalgic', 'Introspective'],
     colors: [
@@ -224,6 +230,7 @@ export const PRODUCTS: Product[] = [
     badge: 'Trending',
     category: 'Tees',
     vibe: 'Poetic Streetwear',
+    gender: 'unisex',
     themes: ['Poetic', 'Internet'],
     moods: ['Aware', 'Detached'],
     colors: [
@@ -258,6 +265,7 @@ export const PRODUCTS: Product[] = [
     badge: 'Archive Favorite',
     category: 'Hoodies',
     vibe: 'Anime Cinema',
+    gender: 'unisex',
     themes: ['Anime', 'Cinema', 'Streetwear'],
     moods: ['Driven', 'Unhinged'],
     colors: [
@@ -278,6 +286,216 @@ export const PRODUCTS: Product[] = [
     weeklyWearCount: 267,
     story:
       'Inspired by anime protagonists becoming terrifyingly locked in.',
+  },
+
+  // ── Oversized Tees ──────────────────────────
+
+  {
+    id: 9,
+    slug: 'detached-oversized-tee',
+    name: 'Detached',
+    subtitle: 'Oversized Tee • 240 GSM Boxy Fit',
+    description:
+      'Boxy drop-shoulder cut in heavyweight cotton for people who operate at their own frequency. Washed finish, zero graphics, maximum presence.',
+    price: 899,
+    oldPrice: 1099,
+    badge: 'New Drop',
+    category: 'Oversized Tees',
+    vibe: 'Minimal Emotional',
+    gender: 'unisex',
+    themes: ['Minimal', 'Poetic'],
+    moods: ['Detached', 'Calm'],
+    colors: [
+      { name: 'Washed Black', hex: '#131313' },
+      { name: 'Stone', hex: '#9A9A8A' },
+      { name: 'Cream', hex: '#E8E4DC' },
+    ],
+    sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
+    images: ['/images/products/detached-1.jpg'],
+    emoji: '🌫️',
+    inStock: true,
+    rating: 4.8,
+    reviewCount: 38,
+    isFeatured: true,
+    isTrending: true,
+    trendState: 'everywhere',
+    daysUntilArchive: 30,
+    stockScarcity: 55,
+    weeklyWearCount: 210,
+    story: 'Inspired by existing quietly in a loud world.',
+  },
+
+  {
+    id: 10,
+    slug: 'signal-lost-oversized-tee',
+    name: 'Signal Lost',
+    subtitle: 'Oversized Tee • Pigment Dyed',
+    description:
+      'Pigment-dyed boxy tee that looks like it has been through three emotional eras. Front micro-text, back graphic. Hits different in natural light.',
+    price: 949,
+    badge: 'Trending',
+    category: 'Oversized Tees',
+    vibe: 'Internet Culture',
+    gender: 'unisex',
+    themes: ['Internet', 'Poetic'],
+    moods: ['Chaotic', 'Aware'],
+    colors: [
+      { name: 'Faded Black', hex: '#1C1C1C' },
+      { name: 'Washed Olive', hex: '#5A5A40' },
+    ],
+    sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
+    images: ['/images/products/signal-lost-1.jpg'],
+    emoji: '📡',
+    inStock: true,
+    rating: 4.7,
+    reviewCount: 29,
+    isFeatured: false,
+    isTrending: true,
+    trendState: 'emerging',
+    daysUntilArchive: 20,
+    stockScarcity: 40,
+    weeklyWearCount: 180,
+    story: 'Inspired by being reachable but unresponsive.',
+  },
+
+  // ── Sweatshirts ─────────────────────────────
+
+  {
+    id: 11,
+    slug: 'archive-mode-sweatshirt',
+    name: 'Archive Mode',
+    subtitle: 'Crewneck Sweatshirt • 320 GSM Fleece',
+    description:
+      'Heavyweight crewneck for going dark and getting things done. Minimal branding, structured silhouette, built to outlast every phase you go through.',
+    price: 1299,
+    oldPrice: 1599,
+    badge: 'New Drop',
+    category: 'Sweatshirts',
+    vibe: 'Minimal Emotional',
+    gender: 'unisex',
+    themes: ['Minimal', 'Streetwear'],
+    moods: ['Focused', 'Withdrawn'],
+    colors: [
+      { name: 'Jet Black', hex: '#0A0A0A' },
+      { name: 'Graphite', hex: '#3D3D3D' },
+      { name: 'Off White', hex: '#EBEBEB' },
+    ],
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    images: ['/images/products/archive-mode-1.jpg'],
+    emoji: '🗂️',
+    inStock: true,
+    rating: 4.9,
+    reviewCount: 54,
+    isFeatured: true,
+    isTrending: true,
+    trendState: 'everywhere',
+    daysUntilArchive: 45,
+    stockScarcity: 60,
+    weeklyWearCount: 290,
+    story: 'Inspired by turning notifications off and actually getting somewhere.',
+  },
+
+  {
+    id: 12,
+    slug: '404-motivation-sweatshirt',
+    name: '404: Motivation',
+    subtitle: 'Crewneck Sweatshirt • French Terry',
+    description:
+      'French terry crewneck for days when effort is simply not available. Relaxed fit with a washed finish. The print says what you are already thinking.',
+    price: 1199,
+    badge: 'Culture Pick',
+    category: 'Sweatshirts',
+    vibe: 'Internet Culture',
+    gender: 'unisex',
+    themes: ['Internet', 'Meme Culture'],
+    moods: ['Exhausted', 'Ironic'],
+    colors: [
+      { name: 'Washed Black', hex: '#161616' },
+      { name: 'Smoke', hex: '#525252' },
+    ],
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    images: ['/images/products/404-motivation-1.jpg'],
+    emoji: '💀',
+    inStock: true,
+    rating: 4.8,
+    reviewCount: 41,
+    isFeatured: false,
+    isTrending: true,
+    trendState: 'emerging',
+    daysUntilArchive: 25,
+    stockScarcity: 35,
+    weeklyWearCount: 220,
+    story: 'Inspired by opening your laptop and immediately closing it again.',
+  },
+
+  // ── Crop Tops (Women only) ───────────────────
+
+  {
+    id: 13,
+    slug: 'soft-chaos-crop-top',
+    name: 'Soft Chaos',
+    subtitle: "Women's Crop Top • Ribbed Cotton",
+    description:
+      'Fitted ribbed crop top for people who are simultaneously falling apart and thriving. Clean cut, minimal design, hits at the perfect length.',
+    price: 699,
+    oldPrice: 899,
+    badge: 'New Drop',
+    category: 'Crop Tops',
+    vibe: 'Poetic Internet',
+    gender: 'women',
+    themes: ['Poetic', 'Minimal'],
+    moods: ['Chaotic', 'Confident'],
+    colors: [
+      { name: 'Black', hex: '#0D0D0D' },
+      { name: 'Chalk White', hex: '#F0EDE8' },
+      { name: 'Dusty Mauve', hex: '#9E7D7D' },
+    ],
+    sizes: ['XS', 'S', 'M', 'L', 'XL'],
+    images: ['/images/products/soft-chaos-1.jpg'],
+    emoji: '🌸',
+    inStock: true,
+    rating: 4.9,
+    reviewCount: 66,
+    isFeatured: true,
+    isTrending: true,
+    trendState: 'everywhere',
+    daysUntilArchive: 18,
+    stockScarcity: 50,
+    weeklyWearCount: 310,
+    story: 'Inspired by being the most put-together disaster in the room.',
+  },
+
+  {
+    id: 14,
+    slug: 'cinema-girl-crop-top',
+    name: 'Cinema Girl',
+    subtitle: "Women's Crop Top • Jersey Cotton",
+    description:
+      'Jersey cotton crop top inspired by the girl who quotes films nobody has seen. Vintage graphic front, clean back, worn best with high-waist anything.',
+    price: 749,
+    badge: 'Trending',
+    category: 'Crop Tops',
+    vibe: 'Cinema Core',
+    gender: 'women',
+    themes: ['Cinema', 'Vintage'],
+    moods: ['Dreamy', 'Confident'],
+    colors: [
+      { name: 'Washed Black', hex: '#1A1A1A' },
+      { name: 'Vintage Cream', hex: '#EDE8DF' },
+    ],
+    sizes: ['XS', 'S', 'M', 'L', 'XL'],
+    images: ['/images/products/cinema-girl-1.jpg'],
+    emoji: '🎞️',
+    inStock: true,
+    rating: 4.8,
+    reviewCount: 48,
+    isFeatured: false,
+    isTrending: true,
+    trendState: 'emerging',
+    daysUntilArchive: 22,
+    stockScarcity: 42,
+    weeklyWearCount: 240,
+    story: 'Inspired by having a Letterboxd account and strong opinions.',
   },
 ]
 
@@ -351,5 +569,9 @@ export function getHoodies() {
 
 export function getRelatedProducts(currentId: number, limit = 4) {
   return PRODUCTS.filter(p => p.id !== currentId).slice(0, limit)
+}
+
+export function getNewArrivals(limit = 4) {
+  return PRODUCTS.filter(p => p.badge === 'New Drop' || p.badge === 'Trending').slice(0, limit)
 }
 

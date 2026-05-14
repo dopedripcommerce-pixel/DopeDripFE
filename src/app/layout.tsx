@@ -4,7 +4,7 @@ import '@/styles/globals.css'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import Toast from '@/components/ui/Toast'
-import AnnouncementBar from '@/components/layout/AnnouncementBar'
+// import AnnouncementBar from '@/components/layout/AnnouncementBar'
 import LoaderWrapper from '@/components/ui/LoaderWrapper'
 import HeaderContainer from '@/components/layout/HeaderContainer'
 
@@ -21,9 +21,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${bebasNeue.variable} ${dmSans.variable} ${spaceMono.variable}`}>
       <body style={{background:'#1E1E1E'}}>
+        {/* Synchronously restore site-ready for returning visitors before first paint */}
+        <script dangerouslySetInnerHTML={{__html:"if(sessionStorage.getItem('loaderShown'))document.body.classList.add('site-ready')"}} />
         <LoaderWrapper />
         <HeaderContainer>
-          <AnnouncementBar/>
+          {/* <AnnouncementBar/> */}
           <Navbar/>
         </HeaderContainer>
         <main className="page-enter">{children}</main>

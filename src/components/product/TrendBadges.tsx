@@ -4,10 +4,11 @@ import type { Product } from '@/types'
 export default function TrendBadges({ product }: { product: Product }) {
   const badges: { label: string; color: string }[] = []
 
-  if (product.daysUntilDead <= 7) {
-    badges.push({ label: `Dying in ${product.daysUntilDead}d`, color: '#FF6B6B' })
-  } else if (product.daysUntilDead <= 14) {
-    badges.push({ label: `${product.daysUntilDead}d left`, color: '#FFA500' })
+  const daysLeft = product.daysUntilDead ?? product.daysUntilArchive
+  if (daysLeft !== undefined && daysLeft <= 7) {
+    badges.push({ label: `Dying in ${daysLeft}d`, color: '#FF6B6B' })
+  } else if (daysLeft !== undefined && daysLeft <= 14) {
+    badges.push({ label: `${daysLeft}d left`, color: '#FFA500' })
   }
 
   if (product.stockScarcity < 20) {

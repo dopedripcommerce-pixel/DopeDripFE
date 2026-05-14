@@ -10,6 +10,7 @@ export default function CollectionsGrid() {
   const scrollRef = useRef<HTMLDivElement>(null)
 
   const [autoScroll, setAutoScroll] = useState(true)
+  const [activeIndex, setActiveIndex] = useState(0)
 
   const CARD_WIDTH = 296
 
@@ -58,6 +59,7 @@ export default function CollectionsGrid() {
 
   return (
     <section
+      id="collections"
       style={{ background: '#0D0D0D' }}
       className="relative overflow-hidden py-14 md:py-16"
     >
@@ -246,6 +248,11 @@ export default function CollectionsGrid() {
           {/* Rail */}
           <div
             ref={scrollRef}
+            onScroll={e => {
+              const el = e.currentTarget
+              const idx = Math.round(el.scrollLeft / (el.scrollWidth / COLLECTIONS.length))
+              setActiveIndex(Math.min(idx, COLLECTIONS.length - 1))
+            }}
             className="
               flex
               items-stretch
@@ -263,7 +270,7 @@ export default function CollectionsGrid() {
               <div
                 key={collection.id}
                 className="
-                  min-w-[85%]
+                  min-w-[78%]
                   sm:min-w-[340px]
                   md:min-w-[280px]
                   md:max-w-[280px]
@@ -273,6 +280,22 @@ export default function CollectionsGrid() {
                 <CollectionCard collection={collection} />
               </div>
             ))}
+          </div>
+
+          {/* Mobile swipe hint + dots */}
+          <div className="md:hidden flex flex-col items-center gap-3 mt-4 px-6">
+            <p className="font-mono text-[9px] tracking-[0.3em] uppercase text-[#444]">
+              swipe to explore →
+            </p>
+            <div className="flex gap-1.5">
+              {COLLECTIONS.map((_, i) => (
+                <div
+                  key={i}
+                  style={{ width: i === activeIndex ? 20 : 6, background: i === activeIndex ? '#D4FF00' : '#2A2A2A' }}
+                  className="h-[3px] rounded-full transition-all duration-300"
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>

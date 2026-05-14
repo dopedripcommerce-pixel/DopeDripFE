@@ -212,7 +212,6 @@ export const useEmailStore = create<EmailStore>()(
 // )
 
 // ── UGC / User Content ────────────────────────
-import type { UserContent } from '@/types'
 
 interface UGCStore {
   items:    UserContent[]

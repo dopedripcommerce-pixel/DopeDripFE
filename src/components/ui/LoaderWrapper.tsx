@@ -6,14 +6,15 @@ export default function LoaderWrapper() {
   const [showLoader, setShowLoader] = useState(true)
 
   useEffect(() => {
-    const hasSeenLoader = sessionStorage.getItem('loaderShown')
-    if (hasSeenLoader) {
+    if (sessionStorage.getItem('loaderShown')) {
       setShowLoader(false)
+      document.body.classList.add('site-ready')
     }
   }, [])
 
   const handleLoaderComplete = () => {
     sessionStorage.setItem('loaderShown', 'true')
+    document.body.classList.add('site-ready')
     setShowLoader(false)
   }
 

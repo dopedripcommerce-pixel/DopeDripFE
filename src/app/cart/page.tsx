@@ -32,7 +32,7 @@ export default function CartPage() {
         <div className="space-y-3">
           {items.map(item=>(
             <div key={`${item.product.id}-${item.size}-${item.color.name}`}
-              style={{background:'#2A2A2A',border:'1px solid #3A3A3A'}}
+              style={{background:'#2A2A2A',border:'1px solid #3A3A3A',borderRadius:'12px'}}
               className="grid grid-cols-[90px_1fr_auto] gap-5 p-5 items-center">
               <div style={{background:item.color.hex+'18'}} className="flex items-center justify-center h-24">
                 <ProductImagePlaceholder color={item.color.hex} emoji={item.product.emoji} type={item.product.category} size={65}/>
@@ -41,7 +41,7 @@ export default function CartPage() {
                 <p className="font-medium text-white text-sm mb-1">{item.product.name}</p>
                 <p className="text-xs text-[#888] mb-3">Size: {item.size} · Color: {item.color.name}</p>
                 <div className="flex items-center gap-4">
-                  <div style={{border:'1px solid #3A3A3A'}} className="flex items-center">
+                  <div style={{border:'1px solid #3A3A3A'}} className="flex items-center rounded-lg overflow-hidden">
                     <button onClick={()=>updateQty(item.product.id,item.size,item.color.name,item.quantity-1)}
                       style={{background:'#1E1E1E'}} className="w-9 h-9 text-white text-lg hover:bg-[#3A3A3A] transition-colors">−</button>
                     <span className="w-10 text-center font-mono text-sm text-white">{item.quantity}</span>
@@ -60,11 +60,11 @@ export default function CartPage() {
         </div>
 
         {/* Summary */}
-        <div style={{background:'#2A2A2A',border:'1px solid #3A3A3A'}} className="p-6 sticky top-20">
+        <div style={{background:'#2A2A2A',border:'1px solid #3A3A3A',borderRadius:'12px'}} className="p-6 sticky top-20">
           <h2 className="font-display text-3xl text-white tracking-widest mb-5">ORDER SUMMARY</h2>
           <div style={{borderBottom:'1px solid #3A3A3A'}} className="space-y-3 text-sm pb-4 mb-4">
             <div className="flex justify-between text-white">
-              <span>Subtotal ({items.length} items)</span>
+              <span>Subtotal ({items.reduce((s,i)=>s+i.quantity,0)} items)</span>
               <span className="font-mono font-bold">₹{totalPrice.toLocaleString('en-IN')}</span>
             </div>
             <div className="flex justify-between">
@@ -77,7 +77,7 @@ export default function CartPage() {
           <div className="flex justify-between font-mono font-bold text-base text-white mb-5">
             <span>Total</span><span>₹{grandTotal.toLocaleString('en-IN')}</span>
           </div>
-          <div className="flex mb-5">
+          <div className="flex mb-5 rounded-lg overflow-hidden">
             <input value={coupon} onChange={e=>setCoupon(e.target.value)} placeholder="Coupon code"
               style={{background:'#1E1E1E',border:'1px solid #3A3A3A',borderRight:'none',color:'white'}}
               className="flex-1 px-4 py-3 text-sm placeholder:text-[#555] focus:outline-none focus:border-[#D4FF00]"/>

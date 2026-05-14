@@ -58,6 +58,7 @@ export default function ProductCard({
           relative
           aspect-[3/4]
           overflow-hidden
+          rounded-xl
           bg-[#151515]
         "
         style={{
@@ -95,6 +96,7 @@ export default function ProductCard({
             flex
             items-center
             justify-center
+            rounded-full
             bg-black/40
             backdrop-blur-sm
             text-white

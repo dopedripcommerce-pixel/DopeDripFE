@@ -1,33 +1,57 @@
 'use client'
 import { useState } from 'react'
 import { useToastStore } from '@/store'
+
 export default function NewsletterSection() {
   const [email, setEmail] = useState('')
   const showToast = useToastStore(s => s.show)
+
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
     if (!email) return
-    showToast('Subscribed! First drops coming your way ⚡')
+    showToast('You\'re in. First drops coming your way ⚡')
     setEmail('')
   }
+
   return (
-    <section style={{background:'#D4FF00',color:'#1E1E1E'}} className="px-8 md:px-16 py-20 text-center">
-      <p className="font-mono text-xs tracking-[0.2em] uppercase mb-3 opacity-60">Stay Ahead</p>
-      <h2 className="font-display text-[clamp(36px,6vw,64px)] tracking-[0.15em] mb-2">FIRST TO THE MOMENT</h2>
-      <p className="text-sm mb-8 max-w-md mx-auto opacity-70">
-        Get early access to drops that capture the zeitgeist. Exclusive trends before they peak.
-      </p>
-      <form onSubmit={handleSubmit} className="flex max-w-md mx-auto">
-        <input type="email" value={email} onChange={e=>setEmail(e.target.value)}
-          placeholder="your@email.com" required
-          style={{background:'#1E1E1E',border:'none',color:'white'}}
-          className="flex-1 px-5 py-4 text-sm font-body placeholder:text-[#888] focus:outline-none"/>
-        <button type="submit"
-          style={{background:'#1E1E1E',color:'#D4FF00'}}
-          className="font-mono text-xs tracking-widest uppercase px-6 hover:bg-[#2A2A2A] transition-colors whitespace-nowrap">
-          Join Now ⚡
-        </button>
-      </form>
+    <section
+      style={{ background: '#111', borderTop: '1px solid #1A1A1A' }}
+      className="px-6 md:px-10 xl:px-16 py-10 md:py-12"
+    >
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+        <div>
+          <p className="font-display text-white tracking-tight leading-none" style={{ fontSize: 'clamp(1.4rem, 3vw, 2rem)' }}>
+            FIRST TO THE DROP.
+          </p>
+          <p className="font-mono text-[11px] text-[#444] mt-1.5 tracking-widest">
+            No spam. Just early access.
+          </p>
+        </div>
+
+        <form onSubmit={handleSubmit} className="flex w-full md:w-auto md:min-w-[380px] rounded-lg overflow-hidden">
+          <input
+            type="email"
+            value={email}
+            onChange={e => setEmail(e.target.value)}
+            placeholder="your@email.com"
+            required
+            style={{
+              background: '#161616',
+              border: '1px solid #2A2A2A',
+              borderRight: 'none',
+              color: 'white',
+            }}
+            className="flex-1 px-4 py-3 text-sm font-mono placeholder:text-[#333] focus:outline-none focus:border-[#D4FF00]"
+          />
+          <button
+            type="submit"
+            style={{ background: '#D4FF00', color: '#0D0D0D' }}
+            className="font-mono text-[10px] tracking-[0.25em] uppercase px-5 font-bold hover:bg-white transition-colors whitespace-nowrap"
+          >
+            Join ⚡
+          </button>
+        </form>
+      </div>
     </section>
   )
 }
